@@ -46,7 +46,7 @@ int make_dup() {
     wcscat(buffer2, buffer1);
 
 
-     BOOL result3 = CopyFileW(buffer1, buffer2, 0);
+    BOOL result3 = CopyFileW(buffer1, buffer2, 0);
 
     if (result3 == 0) {
         return 1;
