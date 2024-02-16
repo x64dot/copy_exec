@@ -7,21 +7,32 @@
 
 using namespace std;
 
+void hide_console();
 int make_dup();
 
 int main() {
+    hide_console();
 
     int result = make_dup();
 
     if (result != 0) {
-        cout << "Something went wrong!\n";
+        MessageBoxW(NULL, L"Something went wrong!", NULL, MB_OK);
+
+        return -1;
     }
-
-    cin.get();
-
+    
+    MessageBoxW(NULL, L"Check your documents folder :)", L"Successful", MB_OK);
 
     return 0;
 }
+
+
+void hide_console() {
+    HWND hWnd = GetConsoleWindow();
+
+    ShowWindow(hWnd, SW_HIDE);
+}
+
 int make_dup() {
     wchar_t buffer1[250];
     PWSTR buffer2 = NULL;
@@ -53,5 +64,4 @@ int make_dup() {
     }
 
     return 0;
-
 }
